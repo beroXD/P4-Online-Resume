@@ -1,0 +1,261 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+[class*="entypo-"]:before {
+	font-family: "entypo", sans-serif;
+	font-size: 20px;
+	color: #92d4e5;
+}
+
+body,
+div,
+ul,
+li,
+p,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	padding: 0;
+	margin: 0;
+	font-family: 'Slabo 27px', serif;
+}
+
+.education-entry,
+.work-entry,
+.project-entry {
+	padding: 0 5%;
+}
+
+h1 {
+	text-align: center;
+	margin-bottom: 0;
+	margin-top: 0;
+	font-family: 'Oswald', sans-serif;
+	font-size: 7em;
+	color: #fff;
+	line-height: 48px;
+	font-weight: 300;
+	padding-bottom: 30px;
+	padding: 2.5% 5%;
+}
+
+#role {
+	margin-left: 34%;
+	font-size: 3em;
+	color: #fff;
+	line-height: 48px;
+	font-family: 'Rajdhani', sans-serif;
+	font-weight: 300;
+	padding-bottom: 9px;
+}
+
+hr {
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 26px;
+	color: #999;
+	line-height: 29px;
+	padding: 10px;
+}
+
+h3 {
+	font-style: italic;
+	font-size: 20px;
+	color: #000;
+	line-height: 22px;
+}
+
+h4 {
+	font-weight: bold;
+	font-size: 20px;
+	color: #4a4a4a;
+	line-height: 17px;
+}
+
+h2,
+h3,
+h4,
+h5 {
+	padding: 10px 5%;
+}
+
+.date-text {
+	font-style: italic;
+	font-size: 20px;
+	color: #999;
+	line-height: 16px;
+	float: left;
+}
+
+.location-text {
+	font-style: italic;
+	font-size: 20px;
+	color: #999;
+	line-height: 16px;
+	float: right;
+}
+
+p {
+	font-size: 23px;
+	color: #333;
+	line-height: 25px;
+}
+
+a {
+	color: #1199c3;
+	text-decoration: none;
+	margin-top: 10px;
+	display: block;
+	font-size: 23px;
+}
+
+.welcome-message {
+	font-style: italic;
+	font-size: 18px;
+	color: #92d4e5;
+	line-height: 28px;
+}
+
+#skills-h3 {
+	color: #92d4e5;
+	display: none;
+}
+
+.blue {
+	background-color: #665870;
+	color: #fff;
+}
+
+.white-text {
+	font-weight: bold;
+	color: #fff;
+}
+
+.gray {
+	background-color: #f3f3f3;
+	padding-bottom: 10px;
+	clear: both;
+}
+
+.dark-gray {
+	background-color: #4a4a4a;
+}
+
+
+/* TODO: Replace with image later */
+
+#header {
+	background-color: #665870;
+	padding-bottom: 30px;
+}
+
+.flex-box {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 10px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.biopic {
+	float: left;
+	padding: 10px;
+	width: 200px;
+	display: none;
+	margin-left: 40px;
+}
+
+img {
+	padding: 10px;
+}
+
+#projects img {
+	width: 200px;
+}
+
+span {
+	padding: 5px;
+}
+
+#lets-connect {
+	text-align: center;
+}
+
+em {
+	font-size: 18px;
+}
+
+
+/* Media queries to handle various device widths */
+
+@media only screen and (max-width: 1024px) {
+	#lets-connect {
+		margin-top: 5%;
+	}
+}
+
+@media only screen and (max-width:900px) {
+	#header {
+		padding-bottom: 50px;
+	}
+	h1 {
+		font-size: 5em;
+	}
+	#role {
+		margin-left: 29%;
+	}
+	.biopic {
+		width: 175px;
+	}
+}
+
+@media only screen and (max-width: 750px) {
+	h1 {
+		font-size: 3em;
+	}
+	#role {
+		font-size: 2em;
+		margin-left: 16%;
+	}
+	#lets-connect {
+		margin-top: 10%;
+	}
+	.biopic {
+		width: 150px;
+	}
+	.welcome-message {
+		display: none;
+	}
+	.skills-item {
+		display: inline;
+		margin-left: 6%;
+	}
+}
+
+#map {
+	display: block;
+	height: 100%;
+	margin: 0 5%;
+}
+
+#mapDiv {
+	height: 400px;
+	width: 100%;
+	padding-bottom: 5%;
+}
+
+@media only screen and (min-width: 750px) {
+	#skills-h3,
+	.biopic {
+		display: block;
+	}
+}
