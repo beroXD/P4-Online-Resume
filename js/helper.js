@@ -13,7 +13,7 @@ These are HTML strings. As part of the course, you'll be using JavaScript functi
 replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span id="role">%data%</span><hr>';
+var HTMLheaderRole = '<p id="role">%data%</p><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="blue-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="entypo-mobile"></span><span class="white-text">%data%</span></li>';
@@ -44,14 +44,14 @@ var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = '<em><br>%data%</em>';
+var HTMLschoolDegree = '<em> - %data%</em>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
-var HTMLonlineSchool = ' - %data%</a>';
+var HTMLonlineClasses = '<div class="education-entry"></div>';
+var HTMLonlineTitle = '<a class="online-title" href="#">%data%';
+var HTMLonlineSchool = '<em> - %data%</em>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
@@ -126,11 +126,9 @@ function initializeMap() {
 		var locations = [];
 
 		// adds the single location property from bio to the locations array
+		// bio is missing
+		locations.push(bio.contacts.location);
 
-		// I added the forEach loop, then the map worked
-		bio.contacts.forEach(function (contacts) {
-			locations.push(contacts.location);
-		});
 		// iterates through school locations and appends each location to
 		// the locations array. Note that forEach is used for array iteration
 		// as described in the Udacity FEND Style Guide:
