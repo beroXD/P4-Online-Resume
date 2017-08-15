@@ -3,32 +3,34 @@ var bio = {
 	"role": "Front-End Developer",
 	"welcomeMessage": "Welcome to my world",
 	"biopic": "images/me.jpg",
-	"contacts": [{
+	"contacts": {
 		"email": "abeer.al@gmail.com",
 		"mobile": "+966555555",
 		"github": "beroXD",
 		"linkedin": "abeer-al-abdulaali-ab4735b9",
 		"location": "Saudi Arabia"
-    }],
+	},
 	"skills": ["HTML", "Team Work", "Project Manegment"]
 };
 
 var education = {
-	"schools": [{
+	"schools": [
+		{
 			"name": "King Faisal University",
 			"location": "AlAhsa, SA",
 			"degree": "Bachelor",
-			"major": "Computer Information Systems",
-			"date": "2011 - 2015"
-        },
-		{
-			"name": "Udacity",
-			"location": "Dammam, SA",
-			"degree": "Nanodegree",
-			"major": "Front-End Web Development",
-			"date": "2017 - 2018"
+			"majors": ["Computer Information Systems"],
+			"dates": "2011 - 2015"
         }
-    ]
+    ],
+	"onlineCourses": [
+		{
+			"title": "Front-End Web Development",
+			"school": "Udacity",
+			"dates": "2017 - 2018",
+			"url": "https://www.udacity.com/"
+		}
+	]
 };
 
 var work = {
@@ -45,8 +47,8 @@ var projects = {
 	"projects": [{
 		"title": "Maid Brigade Mobile App",
 		"dates": "2014 - 2015",
-		"descr": "Maid Brigade mobile application would be a more convenient way for customers to request the service, remind them to evaluate the service and to notify them about any new offers. The application will include the Quality Card Evaluation form in addition to other services provided currently through the main website of the organization.",
-		"img": [
+		"description": "Maid Brigade mobile application would be a more convenient way for customers to request the service, remind them to evaluate the service and to notify them about any new offers. The application will include the Quality Card Evaluation form in addition to other services provided currently through the main website of the organization.",
+		"images": [
             "images/p1.png",
             "images/p2.png"
         ]
@@ -57,27 +59,16 @@ var projects = {
 
 bio.display = function () {
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
-
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 	$("#header").prepend(formattedName + formattedRole);
 
-	for (var contact = 0; contact < bio.contacts.length; contact++) {
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
-		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts[contact].mobile);
-		$("#topContacts, #footerContacts").append(formattedMobile);
-
-		var formattedEmail = HTMLemail.replace("%data%", bio.contacts[contact].email);
-		$("#topContacts, #footerContacts").append(formattedEmail);
-
-		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts[contact].github);
-		$("#topContacts, #footerContacts").append(formattedGithub);
-
-		var formattedLinkedin = HTMLlinkedin.replace("%data%", bio.contacts[contact].linkedin);
-		$("#topContacts, #footerContacts").append(formattedLinkedin);
-
-		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts[contact].location);
-		$("#topContacts, #footerContacts").append(formattedLocation);
-	}
+	$("#topContacts, #footerContacts").append(formattedMobile, formattedEmail, formattedGithub, formattedLinkedin, formattedLocation);
 
 	var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
 	$("#header").append(formattedPic);
@@ -85,15 +76,12 @@ bio.display = function () {
 	var formattedMess = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 	$("#header").append(formattedMess);
 
-	if (bio.skills.length > 0) {
-		$("#header").append(HTMLskillsStart);
+	$("#header").append(HTMLskillsStart);
+	for (var s = 0; s < bio.skills.length; s++) {
+		var formattedSkills = HTMLskills.replace("%data%", bio.skills[s]);
+		formattedSkills = HTMLskills.replace("%data%", bio.skills[s]);
+		formattedSkills = HTMLskills.replace("%data%", bio.skills[s]);
 
-		var formattedSkills = HTMLskills.replace("%data%", bio.skills[0]);
-		$("#skills").append(formattedSkills);
-		formattedSkills = HTMLskills.replace("%data%", bio.skills[1]);
-
-		$("#skills").append(formattedSkills);
-		formattedSkills = HTMLskills.replace("%data%", bio.skills[2]);
 		$("#skills").append(formattedSkills);
 	}
 };
@@ -105,19 +93,31 @@ education.display = function () {
 		$("#education").append(HTMLschoolStart);
 
 		var formattedSname = HTMLschoolName.replace("%data%", education.schools[e].name);
-		$(".education-entry:last").append(formattedSname);
+		var formattedSdegree = HTMLschoolDegree.replace("%data%", education.schools[e].degree);
+		$(".education-entry:last").append(formattedSname + formattedSdegree);
 
 		var formattedSlocation = HTMLschoolLocation.replace("%data%", education.schools[e].location);
 		$(".education-entry:last").append(formattedSlocation);
 
-		var formattedSdate = HTMLschoolDates.replace("%data%", education.schools[e].date);
+		var formattedSdate = HTMLschoolDates.replace("%data%", education.schools[e].dates);
 		$(".education-entry:last").append(formattedSdate);
 
-		var formattedSdegree = HTMLschoolDegree.replace("%data%", education.schools[e].degree);
-		$(".education-entry:last").append(formattedSdegree);
 
-		var formattedSmajor = HTMLschoolMajor.replace("%data%", education.schools[e].major);
+		var formattedSmajor = HTMLschoolMajor.replace("%data%", education.schools[e].majors);
 		$(".education-entry:last").append(formattedSmajor);
+	}
+	for (var o = 0; o < education.onlineCourses.length; o++) {
+		$("#online-education").append(HTMLonlineClasses);
+
+		var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[o].title);
+		var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[o].school);
+		$(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
+
+		var formattedOnlineDate = HTMLonlineDates.replace("%data%", education.onlineCourses[o].dates);
+		$(".education-entry:last").append(formattedOnlineDate);
+
+		var formattedOnlineUrl = HTMLonlineURL.replace("%data%", education.onlineCourses[o].url);
+		$(".education-entry:last").append(formattedOnlineUrl);
 	}
 };
 
@@ -126,18 +126,17 @@ education.display = function () {
 work.display = function () {
 	for (var job = 0; job < work.jobs.length; job++) {
 		$("#workExperience").append(HTMLworkStart);
+
 		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-
 		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-
-		var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-		$(".work-entry:last").append(formattedEmployerTitle);
+		$(".work-entry:last").append(formattedEmployer + formattedTitle);
 
 		var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
 		$(".work-entry:last").append(formattedWorkLocation);
+
 		var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 		$(".work-entry:last").append(formattedWorkDates);
+
 		var formattedWorkDes = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(formattedWorkDes);
 	}
@@ -155,11 +154,11 @@ projects.display = function () {
 		var formattedPdates = HTMLprojectDates.replace("%data%", projects.projects[p].dates);
 		$(".project-entry:last").append(formattedPdates);
 
-		var formattedPdesc = HTMLprojectDescription.replace("%data%", projects.projects[p].descr);
+		var formattedPdesc = HTMLprojectDescription.replace("%data%", projects.projects[p].description);
 		$(".project-entry:last").append(formattedPdesc);
 
-		for (var i = 0; i < projects.projects[p].img.length; i++) {
-			var formattedPimg = HTMLprojectImage.replace("%data%", projects.projects[p].img[i]);
+		for (var i = 0; i < projects.projects[p].images.length; i++) {
+			var formattedPimg = HTMLprojectImage.replace("%data%", projects.projects[p].images[i]);
 			$(".project-entry:last").append(formattedPimg);
 		}
 	}
